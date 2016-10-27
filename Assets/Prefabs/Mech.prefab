@@ -172,7 +172,7 @@ GameObject:
   - 54: {fileID: 54000010485726054}
   m_Layer: 0
   m_Name: Mech
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,7 +649,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011849578336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4527926, y: 14.9, z: 15.636002}
+  m_LocalPosition: {x: 0, y: 5.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90754f38c4840241b1df794d70a3e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4000010493463252}
+  target: {fileID: 0}
 --- !u!114 &114000011423281644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ae89db2120a1846b022d72f671812d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4000011753183892}
+  target: {fileID: 0}
 --- !u!114 &114000012345634444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90754f38c4840241b1df794d70a3e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4000011753183892}
+  target: {fileID: 0}
 --- !u!114 &114000012737491562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ae89db2120a1846b022d72f671812d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4000010493463252}
+  target: {fileID: 0}
 --- !u!114 &114000012867163322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1467,8 +1467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3552e4df450810a45bf83b195f38ea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoulder: {fileID: 4000010507593574}
-  hand: {fileID: 4000014251283864}
+  shoulder: {fileID: 0}
+  hand: {fileID: 0}
 --- !u!114 &114000013338463176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1480,8 +1480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3552e4df450810a45bf83b195f38ea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoulder: {fileID: 4000013592797424}
-  hand: {fileID: 4000011484311674}
+  shoulder: {fileID: 0}
+  hand: {fileID: 0}
 --- !u!120 &120000010166196500
 LineRenderer:
   m_ObjectHideFlags: 1
