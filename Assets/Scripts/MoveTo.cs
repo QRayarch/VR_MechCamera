@@ -3,12 +3,18 @@ using System.Collections;
 
 public class MoveTo : MonoBehaviour {
 
-    public Transform goal;
-
     // Use this for initialization
     void Start () {
+        GameObject[] shootingPoints;
+        int randPoint;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.destination = goal.position;
+        Transform spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+
+        gameObject.transform.position = spawn.position;
+
+        shootingPoints = GameObject.FindGameObjectsWithTag("ShootingPoint");
+        randPoint = Random.Range(0, shootingPoints.Length);
+        agent.destination = shootingPoints[randPoint].gameObject.transform.position;
     }
 	
 	// Update is called once per frame
