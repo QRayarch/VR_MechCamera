@@ -1,17 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class RotateLeft : MonoBehaviour {
+public class RotateLeft : RotateBase
+{
+    public float rotateAmount = 1;
 
-    public GameObject mech;
-
-    void rotateMechLeft() {
-        mech.transform.RotateAround(transform.position,Vector3.up,-50 * Time.deltaTime);
+    public override void Activate(GameObject mech) {
+        mech.transform.rotation *= Quaternion.Euler(0, -rotateAmount * Time.deltaTime, 0);
     }
-	// Update is called once per frame
-	void Update () {
-	    //if(viveStuffHere){
-        // rotateMechLeft();    
-        //}
-	}
 }
