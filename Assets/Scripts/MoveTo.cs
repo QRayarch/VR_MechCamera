@@ -7,6 +7,7 @@ public class MoveTo : MonoBehaviour {
     private float lastShot;
     private NavMeshAgent agent;
     private GameObject player;
+    private GameManager gameManager;
 
     // Use this for initialization
     void Start () {
@@ -19,6 +20,7 @@ public class MoveTo : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player");
         shootingPoints = GameObject.FindGameObjectsWithTag("ShootingPoint");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         randPoint = Random.Range(0, shootingPoints.Length);
         agent.destination = shootingPoints[randPoint].gameObject.transform.position;
@@ -47,7 +49,7 @@ public class MoveTo : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 60))
                 {
-                    Debug.DrawLine(transform.position, hit.point);
+                    gameManager.PlayerHit();
                 }
             }
         }
