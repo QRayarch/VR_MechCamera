@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spawn
   - ShootingPoint
+  - Monitor
+  - GameManager
   layers:
   - Default
   - TransparentFX
