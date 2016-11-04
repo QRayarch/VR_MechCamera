@@ -4,15 +4,16 @@ using System.Collections;
 public abstract class RotateBase : MonoBehaviour
 {
 
-    public GameObject mech;
     public Material touchedMat;
 
+    private GameObject mech;
     private MeshRenderer meshRen;
     private Material oldMat;
 
     // Use this for initialization
     void Start()
     {
+        mech = GameObject.FindGameObjectWithTag("Player");
         meshRen = GetComponent<MeshRenderer>();
         oldMat = meshRen.material;
     }

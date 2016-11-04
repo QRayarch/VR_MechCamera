@@ -4,6 +4,8 @@ using System.Collections;
 public class MoveTo : MonoBehaviour {
 
     public float fireRate;
+    public ParticleSystem fireEffect;
+
     private float lastShot;
     private NavMeshAgent agent;
     private GameObject player;
@@ -49,6 +51,8 @@ public class MoveTo : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 60))
                 {
+                    fireEffect.transform.LookAt(hit.point);
+                    fireEffect.Emit(50);
                     gameManager.PlayerHit();
                 }
             }
