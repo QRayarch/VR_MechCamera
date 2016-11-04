@@ -4,16 +4,18 @@ using System.Collections;
 public class MoveTo : MonoBehaviour {
 
     public float fireRate;
-    public ParticleSystem fireEffect;
+    public LineRenderer fireEffect;
 
     private float lastShot;
     private NavMeshAgent agent;
     private GameObject player;
     private GameManager gameManager;
 
+    private GameObject[] shootingPoints;
+
     // Use this for initialization
     void Start () {
-        GameObject[] shootingPoints;
+        
         int randPoint;
         agent = GetComponent<NavMeshAgent>();
         Transform spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
@@ -42,20 +44,30 @@ public class MoveTo : MonoBehaviour {
             float dist = distanceV3.magnitude;
 
             // If player is in view, then shoot
-            if(dist <= 60 && Time.time > lastShot + fireRate)
+            if(dist <= 100 && Time.time > lastShot + fireRate)
             {
                 // Reset fire rate time
-                lastShot = Time.time;
 
                 // Cast a ray, if it hits the player do damage
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 60))
+                if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 100))
                 {
-                    fireEffect.transform.LookAt(hit.point);
-                    fireEffect.Emit(50);
-                    gameManager.PlayerHit();
+
+                    if (hit.transform.root.transform == player.transform)
+                    {
+                        LineRenderer lnr = Instantiate(fireEffect);
+                        lnr.SetPosition(0, transform.position);
+                        lnr.SetPosition(1, hit.point + Random.insideUnitSphere * 0.5f);
+                        Destroy(lnr.gameObject, 0.7f);
+                        gameManager.PlayerHit();
+                        lastShot = Time.time;
+                    }
                 }
             }
+        }
+        if(Random.Range(0, 100000) < 30)
+        {
+            agent.destination = shootingPoints[Random.Range(0, shootingPoints.Length)].gameObject.transform.position;
         }
     }
 }
